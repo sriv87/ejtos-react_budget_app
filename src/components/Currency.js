@@ -4,11 +4,17 @@ const Currency = () => {
 
     const { currency } = useContext(AppContext);
     return (
-        <div className='alert alert-secondary'>
-        <span>Currency </span>
-        <input type="number" step="10" max="20000" value={newBudget} onChange={handleBudgetChange}></input>
-        </div>
-            );
+        <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Currency
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">$ Dollar</a>
+    <a class="dropdown-item" href="#">£ Pound action</a>
+    <a class="dropdown-item" href="#">€ Euro</a>
+  </div>
+</div>
+    );
 
 }
 
