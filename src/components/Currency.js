@@ -2,24 +2,33 @@ import React, { useContext,useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
-    const { currency } = useContext(AppContext);
+    const { dispatch,currency } = useContext(AppContext);
     const [setName] = useState('');
-    //const [newCurrency, setNewCurrency] = useState(currency);
     const handleCurrency =(event) =>{
-        setName(event.target.value)
-
+        
+        setName(event.target.name)
         dispatch({
-            type: 'SET_BUDGET',
+            type: 'CHG_CURRENCY',
             payload: event.target.value
         });
+        dispatch({
+            type: 'CHG_SYMBOL',
+            payload:event.target.symbol
+        })
 
     }
     return(
-        <div className='alert alert-secondary'>
-            <select className="custom-select" id="currency_change" onChange={handleCurrency}>
-            {currency.map((curCurrency,i) => {return <option key={i} value={curCurrency.name} name={curCurrency.name}>{curCurrency.name}</option>})};
+
+        
+        <div >
+            <select className="alert alert-success" id="currency_change" onChange={handleCurrency} >
+            {currency.map((curCurrency,i) => {return <option className='alert alert-success' key={i} value={curCurrency.symbol} name={curCurrency.name} >{'Currency ('+curCurrency.name+')'}</option>})};
             </select>
         </div>
+
+        
+
+        
     );
 
 };

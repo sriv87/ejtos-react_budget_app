@@ -65,10 +65,18 @@ export const AppReducer = (state, action) => {
             };
         case 'CHG_CURRENCY':
             action.type = "DONE";
-            
+            const currencyType = state.currency.map(({ name }) => action.payload)
             return {
                 ...state,
-                
+                currency:[...currencyType],
+            }
+
+        case 'CHG_SYMBOL':
+            action.type = "DONE";
+            const currencySymbol = state.currency.map(({symbol }) => action.payload)
+            return {
+                ...state,
+                 currency:[...currencySymbol],
             }
 
         default:
