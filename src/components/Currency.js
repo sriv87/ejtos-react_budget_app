@@ -19,6 +19,8 @@ const Currency = () => {
             <select className="alert alert-success" id="currency_change" onChange={handleCurrency} >
             <option className='alert alert-success'  value='£' name= '£' >Currency (£ Pound)</option>
             <option className='alert alert-success'  value='$' name= '$' >Currency ($ Dollar)</option>
+            <option className='alert alert-success'  value='€' name= '€' >Currency (€ Euro)</option>
+            <option className='alert alert-success'  value='₹' name= '₹' >Currency (₹ Rupee)</option>
             </select>
         </div>
         //<div >
