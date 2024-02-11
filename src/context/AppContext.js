@@ -63,21 +63,13 @@ export const AppReducer = (state, action) => {
             return {
                 ...state                
             };
-        case 'CHG_CURRENCY':
-            action.type = "DONE";
-            const currencyType = state.currency.map(({ name }) => action.payload)
-            return {
-                ...state,
-                currency:[...currencyType],
-            }
+            case 'CHG_CURRENCY':
+                action.type = "DONE";
+                state.currency = action.payload;
+                return {
+                    ...state
+                }
 
-        case 'CHG_SYMBOL':
-            action.type = "DONE";
-            const currencySymbol = state.currency.map(({symbol }) => action.payload)
-            return {
-                ...state,
-                 currency:[...currencySymbol],
-            }
 
         default:
             return state;
@@ -94,11 +86,7 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: [
-        {id:"Pound", name:'£ Pound', symbol:'£'},
-        {id: "Dollar", name:'$ Dollar',symbol:'$'},
-        {id:"Euro", name:'€ Euro',symbol:'€'},
-    ]
+    currency: '£'
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
